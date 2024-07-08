@@ -12,6 +12,7 @@ resource "azurerm_postgresql_flexible_server" "tfe" {
   name                = "${var.friendly_name_prefix}-pg"
   resource_group_name = var.resource_group_name
 
+  public_network_access_enabled = false
   administrator_login    = var.database_user
   administrator_password = random_string.tfe_pg_password.result
   backup_retention_days  = var.database_backup_retention_days

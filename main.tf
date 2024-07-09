@@ -408,7 +408,7 @@ module "vm" {
   vm_overprovision                        = var.vm_overprovision
   vm_public_key                           = var.vm_public_key == null ? tls_private_key.tfe_ssh[0].public_key_openssh : var.vm_public_key
   vm_sku                                  = var.vm_sku
-  vm_subnet_id                            = local.network.private_subnet.id
+  vm_subnet_id                            = local.network.frontend_subnet.id
   vm_upgrade_mode                         = var.vm_upgrade_mode
   vm_user                                 = var.vm_user
   vm_userdata_script                      = var.is_replicated_deployment ? module.tfe_init_replicated[0].tfe_userdata_base64_encoded : module.tfe_init_fdo[0].tfe_userdata_base64_encoded

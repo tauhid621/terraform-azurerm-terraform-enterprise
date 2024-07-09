@@ -118,7 +118,6 @@ resource "azurerm_linux_virtual_machine_scale_set" "tfe_vmss" {
       application_gateway_backend_address_pool_ids = var.load_balancer_type == "application_gateway" ? [var.load_balancer_backend_id] : null
 
       dynamic "public_ip_address" {
-        for_each = var.load_balancer_public == false ? [1] : []
         content {
           name = "${var.friendly_name_prefix}-public-ip"
         }
